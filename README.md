@@ -1,4 +1,14 @@
-# app
+# TownSQ Health check dashboard
+
+## Authentication parameters
+Create a file named `auth_config.json` in project root following:
+
+```
+{
+  "domain": "DOMAIN",
+  "clientId": "CLIENT_ID"
+}
+```
 
 ## Project setup
 ```
