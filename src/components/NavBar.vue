@@ -38,6 +38,13 @@
             >
               Log in
             </a>
+            <a
+              class="button is-primary"
+              @click.prevent="logout"
+              v-if="$auth.isAuthenticated"
+            >
+              Log out
+            </a>
           </div>
         </div>
       </div>
