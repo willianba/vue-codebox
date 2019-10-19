@@ -1,5 +1,9 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar is-fixed-top"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <router-link to="/" class="navbar-item">
         <img src="@/assets/logo.png" />
@@ -31,20 +35,8 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a
-              class="button is-primary"
-              @click.prevent="login"
-              v-if="!$auth.isAuthenticated && !$auth.loading"
-            >
-              Log in
-            </a>
-            <a
-              class="button is-primary"
-              @click.prevent="logout"
-              v-if="$auth.isAuthenticated"
-            >
-              Log out
-            </a>
+            <LoginButton />
+            <LogoutButton />
           </div>
         </div>
       </div>
@@ -53,16 +45,14 @@
 </template>
 
 <script>
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 export default {
   name: "NavBar",
-  methods: {
-    login() {
-      this.$auth.loginWithRedirect();
-    },
-    logout() {
-      this.$auth.logout();
-      this.$router.push({ path: "/" });
-    }
-  }
+  components: {
+    LoginButton,
+    LogoutButton
+  },
+  methods: {}
 };
 </script>
