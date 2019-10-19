@@ -35,13 +35,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.hero-background {
-  position: absolute;
-  object-fit: cover;
-  object-position: center center;
-  width: 100%;
-  height: 100%;
-}
-</style>

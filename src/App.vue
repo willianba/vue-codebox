@@ -20,3 +20,13 @@ export default {
   }
 };
 </script>
+
+<style>
+.hero-background {
+  position: absolute;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: auto;
+}
+</style>
