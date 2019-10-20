@@ -1,7 +1,9 @@
 <template>
   <div>
     <section class="hero is-fullheight-with-navbar">
-      <img class="hero-background" src="@/assets/bannertownsq.png" />
+      <figure class="image">
+        <img class="hero-background" src="@/assets/bannertownsq.png" />
+      </figure>
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
