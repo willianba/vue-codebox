@@ -13,14 +13,20 @@
         class="navbar-burger burger"
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        data-target="navbar-menu"
+        @click="isOpen = !isOpen"
+        v-bind:class="{ 'is-active': isOpen }"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div
+      id="navbar-menu"
+      class="navbar-menu"
+      v-bind:class="{ 'is-active': isOpen }"
+    >
       <div class="navbar-start">
         <router-link to="/" class="navbar-item">Home</router-link>
         <router-link
@@ -49,6 +55,11 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 export default {
   name: "NavBar",
+  data: () => {
+    return {
+      isOpen: false
+    };
+  },
   components: {
     LoginButton,
     LogoutButton
