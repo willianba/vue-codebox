@@ -3,9 +3,6 @@
     <div>
       <Sidebar v-bind:condos="condos" />
     </div>
-    <div>
-      <p>test</p>
-    </div>
   </div>
 </template>
 
