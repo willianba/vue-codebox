@@ -27,3 +27,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.fixed-sidebar {
+  padding-left: 260px;
+  padding-right: 10px;
+}
+</style>
