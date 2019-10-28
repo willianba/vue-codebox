@@ -27,6 +27,6 @@ export default {
   object-fit: cover;
   object-position: center center;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 </style>
