@@ -29,6 +29,7 @@ export default {
 <style lang="scss">
 .app-sidebar {
   position: fixed;
+  top: 52px;
   padding: 15px 5px 20px;
   width: 250px;
   height: calc(100% - 50px);
