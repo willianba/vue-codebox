@@ -11,6 +11,7 @@
 
 <script>
 import Sidebar from "@/components/Sidebar";
+import condominiums from "../condominiums.json";
 
 export default {
   name: "Dashboard",
@@ -19,35 +20,13 @@ export default {
   },
   data() {
     return {
-      condos: [
-        {
-          name: "Schaefer, McLaughlin and Ullrich",
-          score: 88,
-          metrics: {
-            alert: 64,
-            discussion: 45,
-            document: 65,
-            event: 100,
-            package: 42,
-            facility: 36,
-            forum: 22
-          }
-        },
-        {
-          name: "Bosco-Donnelly",
-          score: 30,
-          metrics: {
-            alert: 21,
-            discussion: 39,
-            document: 97,
-            event: 50,
-            package: 43,
-            facility: 83,
-            forum: 83
-          }
-        }
-      ]
+      condos: condominiums
     };
+  },
+  mounted() {
+    this.condos.sort((c1, c2) => {
+      return c2.score - c1.score;
+    });
   }
 };
 </script>
