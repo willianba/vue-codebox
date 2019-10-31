@@ -1,6 +1,5 @@
 <template>
-  <section class="hero is-fullheight-with-navbar">
-    <img class="hero-background" src="@/assets/bannertownsq.png" />
+  <section class="hero is-fullheight-with-navbar has-bg-img">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -16,10 +15,9 @@
         <div>
           <p><strong>Stack used</strong></p>
           <ul>
-            <li>VueJS</li>
+            <li>VueJS + Bulma</li>
             <li>Quarkus</li>
-            <li>MongoDB</li>
-            <li>CloudAMQP</li>
+            <li>AWS RDS (PostgreSQL)</li>
             <li>Auth0</li>
           </ul>
         </div>
