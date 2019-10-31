@@ -1,12 +1,13 @@
 <template>
   <div>
-    <a v-if="condo.score >= good_score" class="green-background">{{
-      condo.name
-    }}</a>
-    <a v-else-if="condo.score >= 30" class="yellow-background">{{
-      condo.name
-    }}</a>
-    <a v-else class="red-background">{{ condo.name }}</a>
+    <table>
+      <tr>
+        <a v-bind:class="backgroundColor">
+          <td>{{ condo.name }}</td>
+          <td>{{ condo.score }}</td>
+        </a>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -21,14 +22,34 @@ export default {
   },
   data() {
     return {
-      good_score: 70,
-      bad_score: 30
+      isGood: this.condo.score >= 70,
+      isAverage: this.condo.score >= 30 && this.condo.score < 70,
+      isBad: this.condo.score < 30
     };
+  },
+  computed: {
+    backgroundColor() {
+      return {
+        "green-background": this.isGood,
+        "yellow-background": this.isAverage,
+        "red-background": this.isBad
+      };
+    }
   }
 };
 </script>
 
 <style scoped>
+table {
+  width: 100%;
+  border-spacing: 1em 0.5em;
+  border: 1px solid transparent;
+}
+
+td {
+  width: 100%;
+}
+
 .green-background {
   background-color: rgba(170, 255, 153, 0.26);
 }
