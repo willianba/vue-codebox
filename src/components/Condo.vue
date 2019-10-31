@@ -2,7 +2,7 @@
   <div>
     <table>
       <tr>
-        <a v-bind:class="backgroundColor">
+        <a class="panel-block" v-bind:class="backgroundColor">
           <td>{{ condo.name }}</td>
           <td>{{ condo.score }}</td>
         </a>
@@ -43,7 +43,6 @@ export default {
 table {
   width: 100%;
   border-spacing: 1em 0.5em;
-  border: 1px solid transparent;
 }
 
 td {

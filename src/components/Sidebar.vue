@@ -1,11 +1,22 @@
 <template>
   <div>
-    <aside class="menu app-sidebar animated">
-      <p class="menu-label">
+    <article class="panel app-sidebar">
+      <p class="panel-heading">
         Condominiums
       </p>
+      <p class="panel-tabs">
+        <a>All</a>
+        <a>Good</a>
+        <a>Average</a>
+        <a>Bad</a>
+      </p>
+      <div class="panel-block">
+        <p class="control">
+          <input class="input is-primary" type="text" placeholder="Search" />
+        </p>
+      </div>
       <CondoList v-bind:condos="condos" />
-    </aside>
+    </article>
   </div>
 </template>
 
@@ -30,12 +41,9 @@ export default {
 .app-sidebar {
   position: fixed;
   top: 52px;
-  padding: 15px 5px 20px;
+  padding: 5px 5px 5px;
   width: 250px;
   height: calc(100% - 50px);
-  z-index: 1024 - 1;
-  background: #fff;
-  box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1), 0 0 0 1px rgba(17, 17, 17, 0.1);
   overflow-y: auto;
   overflow-x: hidden;
 }
