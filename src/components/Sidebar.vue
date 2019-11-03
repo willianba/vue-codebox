@@ -23,6 +23,8 @@
 
 <script>
 import CondoList from "@/components/CondoList";
+import { BUTTONS } from "@/constants/buttons";
+import { SCORE } from "@/constants/score";
 
 export default {
   name: "Sidebar",
@@ -32,22 +34,22 @@ export default {
   data() {
     return {
       mutableCondos: this.condos,
-      activeButton: "All",
+      activeButton: BUTTONS.ALL,
       buttonList: [
         {
-          name: "All",
+          name: BUTTONS.ALL,
           method: this.showAll
         },
         {
-          name: "Good",
+          name: BUTTONS.GOOD,
           method: this.showGood
         },
         {
-          name: "Average",
+          name: BUTTONS.AVERAGE,
           method: this.showAverage
         },
         {
-          name: "Bad",
+          name: BUTTONS.BAD,
           method: this.showBad
         }
       ]
@@ -65,17 +67,17 @@ export default {
     },
     showGood() {
       this.mutableCondos = this.condos.filter(condo => {
-        return condo.score >= 70;
+        return condo.score >= SCORE.GOOD;
       });
     },
     showAverage() {
       this.mutableCondos = this.condos.filter(condo => {
-        return condo.score >= 30 && condo.score < 70;
+        return condo.score >= SCORE.BAD && condo.score < SCORE.GOOD;
       });
     },
     showBad() {
       this.mutableCondos = this.condos.filter(condo => {
-        return condo.score < 30;
+        return condo.score < SCORE.BAD;
       });
     }
   }

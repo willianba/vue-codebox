@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { SCORE } from "@/constants/score";
+
 export default {
   name: "Condo",
   props: {
@@ -22,9 +24,9 @@ export default {
   },
   data() {
     return {
-      isGood: this.condo.score >= 70,
-      isAverage: this.condo.score >= 30 && this.condo.score < 70,
-      isBad: this.condo.score < 30
+      isGood: this.condo.score >= SCORE.GOOD,
+      isAverage: this.condo.score >= SCORE.BAD && this.condo.score < SCORE.GOOD,
+      isBad: this.condo.score < SCORE.BAD
     };
   },
   computed: {
