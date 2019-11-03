@@ -4,7 +4,14 @@
       <p class="menu-label">Condominiums</p>
       <div class="field has-addons has-addons-centered">
         <p class="control" :key="button.name" v-for="button in buttonList">
-          <button class="button is-small" @click="button.method">
+          <button
+            class="button is-small"
+            @click="
+              button.method();
+              activeButton = button.name;
+            "
+            :class="{ 'is-active': activeButton === button.name }"
+          >
             {{ button.name }}
           </button>
         </p>
@@ -25,6 +32,7 @@ export default {
   data() {
     return {
       mutableCondos: this.condos,
+      activeButton: "All",
       buttonList: [
         {
           name: "All",
