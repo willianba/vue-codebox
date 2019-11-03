@@ -30,6 +30,21 @@ export const percentageChartData = {
   options: {
     responsive: true,
     rotation: Math.PI,
-    circumference: Math.PI
+    circumference: Math.PI,
+    tooltips: {
+      callbacks: {
+        label: (tooltipItem, data) => {
+          const dataset = data.datasets[tooltipItem.datasetIndex];
+          const meta = dataset._meta[Object.keys(dataset._meta)[0]];
+          const total = meta.total;
+          const currentValue = dataset.data[tooltipItem.index];
+          const currentName = data.labels[tooltipItem.index];
+          const percentage = parseFloat(
+            ((currentValue / total) * 100).toFixed(1)
+          );
+          return `${currentName}: ${percentage}%`;
+        }
+      }
+    }
   }
 };
