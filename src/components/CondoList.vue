@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-bind:key="condo.name" v-for="condo in condos">
-      <ui class="menu-list">
+      <ul class="menu-list">
         <Condo v-bind:condo="condo" />
-      </ui>
+      </ul>
     </div>
   </div>
 </template>
