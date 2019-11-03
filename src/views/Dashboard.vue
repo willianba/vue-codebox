@@ -2,18 +2,21 @@
   <div>
     <div>
       <Sidebar v-bind:condos="condos" />
+      <PercentageChart />
     </div>
   </div>
 </template>
 
 <script>
 import Sidebar from "@/components/Sidebar";
+import PercentageChart from "@/components/PercentageChart";
 import condominiums from "../condominiums.json";
 
 export default {
   name: "Dashboard",
   components: {
-    Sidebar
+    Sidebar,
+    PercentageChart
   },
   data() {
     return {
