@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-bind:key="condo.name" v-for="condo in condos">
+    <div v-bind:key="condo.name" v-for="condo in filteredCondos">
       <ul class="menu-list">
         <Condo v-bind:condo="condo" />
       </ul>
@@ -17,10 +17,21 @@ export default {
     condos: {
       type: Array,
       required: true
+    },
+    search: {
+      type: String,
+      required: false
     }
   },
   components: {
     Condo
+  },
+  computed: {
+    filteredCondos() {
+      return this.condos.filter(condo => {
+        return condo.name.toLowerCase().match(this.search.toLowerCase());
+      });
+    }
   }
 };
 </script>

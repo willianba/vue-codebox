@@ -16,7 +16,17 @@
           </button>
         </p>
       </div>
-      <CondoList v-bind:condos="mutableCondos" />
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Search"
+            v-model="search"
+          />
+        </div>
+      </div>
+      <CondoList v-bind:condos="mutableCondos" v-bind:search="search" />
     </aside>
   </div>
 </template>
@@ -52,7 +62,8 @@ export default {
           name: BUTTONS.BAD,
           method: this.showBad
         }
-      ]
+      ],
+      search: ""
     };
   },
   props: {
