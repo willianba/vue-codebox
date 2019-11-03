@@ -16,6 +16,7 @@
 <script>
 import Chart from "chart.js";
 import { percentageChartData } from "@/charts/percentageChart";
+import { condosClassificationMixin } from "@/mixins/condosClassificationMixin";
 
 export default {
   name: "PercentageChart",
@@ -25,6 +26,7 @@ export default {
       required: true
     }
   },
+  mixins: [condosClassificationMixin],
   data() {
     return {
       chartId: "percentage-chart",
@@ -43,9 +45,9 @@ export default {
   },
   created() {
     this.percentageChartData.data.datasets[0].data = [
-      this.$parent.getGoodCondos().length,
-      this.$parent.getAverageCondos().length,
-      this.$parent.getBadCondos().length
+      this.getGoodCondos().length,
+      this.getAverageCondos().length,
+      this.getBadCondos().length
     ];
   },
   mounted() {

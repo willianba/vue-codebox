@@ -33,6 +33,7 @@
 
 <script>
 import CondoList from "@/components/condominiums/CondoList";
+import { condosClassificationMixin } from "@/mixins/condosClassificationMixin";
 import { BUTTONS } from "@/constants/buttons";
 
 export default {
@@ -40,6 +41,7 @@ export default {
   components: {
     CondoList
   },
+  mixins: [condosClassificationMixin],
   data() {
     return {
       mutableCondos: this.condos,
@@ -76,13 +78,13 @@ export default {
       this.mutableCondos = this.condos;
     },
     showGood() {
-      this.mutableCondos = this.$parent.getGoodCondos();
+      this.mutableCondos = this.getGoodCondos();
     },
     showAverage() {
-      this.mutableCondos = this.$parent.getAverageCondos();
+      this.mutableCondos = this.getAverageCondos();
     },
     showBad() {
-      this.mutableCondos = this.$parent.getBadCondos();
+      this.mutableCondos = this.getBadCondos();
     }
   }
 };
