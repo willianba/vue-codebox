@@ -1,5 +1,6 @@
 <template>
-  <div class="notification is-danger" v-if="show">
+  <div class="notification is-danger no-margin-bottom" v-if="show">
+    <button class="delete" @click="closeError"></button>
     {{ msg() }}
   </div>
 </template>
@@ -10,6 +11,9 @@ export default {
   methods: {
     msg() {
       return this.$auth.error;
+    },
+    closeError() {
+      this.$auth.error = null;
     }
   },
   computed: {
@@ -19,3 +23,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.no-margin-bottom {
+  margin-bottom: 0px !important;
+}
+</style>
