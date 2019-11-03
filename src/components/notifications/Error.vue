@@ -8,17 +8,17 @@
 <script>
 export default {
   name: "Error",
+  computed: {
+    show() {
+      return this.$auth.error !== null;
+    }
+  },
   methods: {
     msg() {
       return this.$auth.error;
     },
     closeError() {
       this.$auth.error = null;
-    }
-  },
-  computed: {
-    show() {
-      return this.$auth.error !== null;
     }
   }
 };

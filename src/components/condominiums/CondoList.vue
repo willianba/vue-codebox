@@ -13,16 +13,6 @@ import Condo from "./Condo";
 
 export default {
   name: "CondoList",
-  props: {
-    condos: {
-      type: Array,
-      required: true
-    },
-    search: {
-      type: String,
-      required: false
-    }
-  },
   components: {
     Condo
   },
@@ -31,6 +21,16 @@ export default {
       return this.condos.filter(condo => {
         return condo.name.toLowerCase().match(this.search.toLowerCase());
       });
+    }
+  },
+  props: {
+    condos: {
+      type: Array,
+      required: true
+    },
+    search: {
+      type: String,
+      required: false
     }
   }
 };

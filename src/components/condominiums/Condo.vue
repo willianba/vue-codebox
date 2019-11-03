@@ -16,6 +16,15 @@ import { SCORE } from "@/constants/score";
 
 export default {
   name: "Condo",
+  computed: {
+    backgroundColor() {
+      return {
+        "green-background": this.isGood,
+        "yellow-background": this.isAverage,
+        "red-background": this.isBad
+      };
+    }
+  },
   props: {
     condo: {
       type: Object,
@@ -28,15 +37,6 @@ export default {
       isAverage: this.condo.score >= SCORE.BAD && this.condo.score < SCORE.GOOD,
       isBad: this.condo.score < SCORE.BAD
     };
-  },
-  computed: {
-    backgroundColor() {
-      return {
-        "green-background": this.isGood,
-        "yellow-background": this.isAverage,
-        "red-background": this.isBad
-      };
-    }
   }
 };
 </script>

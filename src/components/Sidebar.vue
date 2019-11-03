@@ -41,7 +41,27 @@ export default {
   components: {
     CondoList
   },
+  methods: {
+    showAll() {
+      this.mutableCondos = this.condos;
+    },
+    showGood() {
+      this.mutableCondos = this.getGoodCondos();
+    },
+    showAverage() {
+      this.mutableCondos = this.getAverageCondos();
+    },
+    showBad() {
+      this.mutableCondos = this.getBadCondos();
+    }
+  },
   mixins: [condosClassificationMixin],
+  props: {
+    condos: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       mutableCondos: this.condos,
@@ -66,26 +86,6 @@ export default {
       ],
       search: ""
     };
-  },
-  props: {
-    condos: {
-      type: Array,
-      required: true
-    }
-  },
-  methods: {
-    showAll() {
-      this.mutableCondos = this.condos;
-    },
-    showGood() {
-      this.mutableCondos = this.getGoodCondos();
-    },
-    showAverage() {
-      this.mutableCondos = this.getAverageCondos();
-    },
-    showBad() {
-      this.mutableCondos = this.getBadCondos();
-    }
   }
 };
 </script>

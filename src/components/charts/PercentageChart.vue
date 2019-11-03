@@ -20,19 +20,6 @@ import { condosClassificationMixin } from "@/mixins/condosClassificationMixin";
 
 export default {
   name: "PercentageChart",
-  props: {
-    condos: {
-      type: Array,
-      required: true
-    }
-  },
-  mixins: [condosClassificationMixin],
-  data() {
-    return {
-      chartId: "percentage-chart",
-      percentageChartData: percentageChartData
-    };
-  },
   methods: {
     createChart(chartId, chartData) {
       const ctx = document.getElementById(chartId);
@@ -42,6 +29,19 @@ export default {
         options: chartData.options
       });
     }
+  },
+  mixins: [condosClassificationMixin],
+  props: {
+    condos: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      chartId: "percentage-chart",
+      percentageChartData: percentageChartData
+    };
   },
   created() {
     this.percentageChartData.data.datasets[0].data = [
