@@ -19,6 +19,12 @@ import { percentageChartData } from "@/charts/percentageChart";
 
 export default {
   name: "PercentageChart",
+  props: {
+    condos: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       chartId: "percentage-chart",
@@ -34,6 +40,13 @@ export default {
         options: chartData.options
       });
     }
+  },
+  created() {
+    this.percentageChartData.data.datasets[0].data = [
+      this.$parent.getGoodCondos().length,
+      this.$parent.getAverageCondos().length,
+      this.$parent.getBadCondos().length
+    ];
   },
   mounted() {
     this.createChart(this.chartId, this.percentageChartData);

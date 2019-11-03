@@ -7,8 +7,6 @@ export const percentageChartData = {
     datasets: [
       {
         label: "Condominiums percentage",
-        // TODO: Get from backend
-        data: [11, 14, 5],
         backgroundColor: [
           "rgba(170, 255, 153, 0.700)",
           "rgba(255, 253, 153, 0.700)",

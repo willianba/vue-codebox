@@ -34,7 +34,6 @@
 <script>
 import CondoList from "@/components/condominiums/CondoList";
 import { BUTTONS } from "@/constants/buttons";
-import { SCORE } from "@/constants/score";
 
 export default {
   name: "Sidebar",
@@ -77,19 +76,13 @@ export default {
       this.mutableCondos = this.condos;
     },
     showGood() {
-      this.mutableCondos = this.condos.filter(condo => {
-        return condo.score >= SCORE.GOOD;
-      });
+      this.mutableCondos = this.$parent.getGoodCondos();
     },
     showAverage() {
-      this.mutableCondos = this.condos.filter(condo => {
-        return condo.score >= SCORE.BAD && condo.score < SCORE.GOOD;
-      });
+      this.mutableCondos = this.$parent.getAverageCondos();
     },
     showBad() {
-      this.mutableCondos = this.condos.filter(condo => {
-        return condo.score < SCORE.BAD;
-      });
+      this.mutableCondos = this.$parent.getBadCondos();
     }
   }
 };
