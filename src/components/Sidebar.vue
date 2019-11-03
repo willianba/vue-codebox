@@ -1,10 +1,15 @@
 <template>
   <div>
-    <aside class="menu app-sidebar animated">
-      <p class="menu-label">
-        Condominiums
-      </p>
-      <CondoList v-bind:condos="condos" />
+    <aside class="menu app-sidebar">
+      <p class="menu-label">Condominiums</p>
+      <div class="field has-addons has-addons-centered">
+        <p class="control" :key="button.name" v-for="button in buttonList">
+          <button class="button is-small" @click="button.method">
+            {{ button.name }}
+          </button>
+        </p>
+      </div>
+      <CondoList v-bind:condos="mutableCondos" />
     </aside>
   </div>
 </template>
@@ -17,10 +22,53 @@ export default {
   components: {
     CondoList
   },
+  data() {
+    return {
+      mutableCondos: this.condos,
+      buttonList: [
+        {
+          name: "All",
+          method: this.showAll
+        },
+        {
+          name: "Good",
+          method: this.showGood
+        },
+        {
+          name: "Average",
+          method: this.showAverage
+        },
+        {
+          name: "Bad",
+          method: this.showBad
+        }
+      ]
+    };
+  },
   props: {
     condos: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    showAll() {
+      this.mutableCondos = this.condos;
+    },
+    showGood() {
+      this.mutableCondos = this.condos.filter(condo => {
+        return condo.score >= 70;
+      });
+    },
+    showAverage() {
+      this.mutableCondos = this.condos.filter(condo => {
+        return condo.score >= 30 && condo.score < 70;
+      });
+    },
+    showBad() {
+      this.mutableCondos = this.condos.filter(condo => {
+        return condo.score < 30;
+      });
     }
   }
 };
