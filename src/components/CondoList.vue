@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-bind:key="condo.name" v-for="condo in filteredCondos">
+    <div :key="condo.name" v-for="condo in filteredCondos">
       <ul class="menu-list">
-        <Condo v-bind:condo="condo" />
+        <Condo :condo="condo" />
       </ul>
     </div>
   </div>

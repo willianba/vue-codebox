@@ -2,7 +2,7 @@
   <div>
     <table>
       <tr>
-        <a v-bind:class="backgroundColor">
+        <a :class="backgroundColor">
           <td>{{ condo.name }}</td>
           <td>{{ condo.score }}</td>
         </a>

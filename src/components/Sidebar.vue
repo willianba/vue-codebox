@@ -26,7 +26,7 @@
           />
         </div>
       </div>
-      <CondoList v-bind:condos="mutableCondos" v-bind:search="search" />
+      <CondoList :condos="mutableCondos" :search="search" />
     </aside>
   </div>
 </template>

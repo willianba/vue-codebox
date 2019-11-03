@@ -1,5 +1,5 @@
 <template>
-  <div class="tile is-ancestor fixed-sidebar is-3">
+  <div class="tile is-ancestor is-3">
     <div class="tile is-vertical">
       <div class="tile">
         <div class="tile is-parent">

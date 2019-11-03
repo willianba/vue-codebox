@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <NavBar />
-    <div>
-      <Error />
-      <router-view />
-    </div>
+    <Error />
+    <router-view />
   </div>
 </template>
 

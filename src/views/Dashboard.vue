@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <Sidebar v-bind:condos="condos" />
+    <Sidebar :condos="condos" />
+    <div class="fixed-sidebar">
       <PercentageChart />
     </div>
   </div>
