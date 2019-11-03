@@ -8,7 +8,7 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import Error from "@/components/Error";
+import Error from "@/components/notifications/Error";
 
 export default {
   name: "App",

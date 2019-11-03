@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import CondoList from "@/components/CondoList";
+import CondoList from "@/components/condominiums/CondoList";
 import { BUTTONS } from "@/constants/buttons";
 import { SCORE } from "@/constants/score";
 

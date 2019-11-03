@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
+import LoginButton from "@/components/buttons/LoginButton";
+import LogoutButton from "@/components/buttons/LogoutButton";
 
 export default {
   name: "NavBar",

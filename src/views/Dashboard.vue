@@ -9,8 +9,8 @@
 
 <script>
 import Sidebar from "@/components/Sidebar";
-import PercentageChart from "@/components/PercentageChart";
-import condominiums from "../condominiums.json";
+import PercentageChart from "@/components/charts/PercentageChart";
+import condominiums from "@/condominiums.json";
 
 export default {
   name: "Dashboard",

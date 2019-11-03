@@ -26,7 +26,8 @@
 </template>
 
 <script>
-import LoginButton from "@/components/LoginButton";
+import LoginButton from "@/components/buttons/LoginButton";
+
 export default {
   name: "Home",
   components: {

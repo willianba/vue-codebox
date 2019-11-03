@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Condo from "@/components/Condo";
+import Condo from "./Condo";
 
 export default {
   name: "CondoList",
