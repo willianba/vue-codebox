@@ -2,7 +2,12 @@
   <div>
     <div :key="condo.name" v-for="condo in filteredCondos">
       <ul class="menu-list">
-        <Condo :condo="condo" @condo-to-condolist="sendToSidebar($event)" />
+        <Condo
+          :condo="condo"
+          :activeCondo="activeCondo"
+          @condo-to-condolist="sendToSidebar($event)"
+          @active-condo="updateActiveCondo($event)"
+        />
       </ul>
     </div>
   </div>
@@ -26,6 +31,9 @@ export default {
   methods: {
     sendToSidebar(condo) {
       this.$emit("condo-to-sidebar", condo);
+    },
+    updateActiveCondo(condoName) {
+      this.activeCondo = condoName;
     }
   },
   props: {
@@ -37,6 +45,11 @@ export default {
       type: String,
       required: false
     }
+  },
+  data() {
+    return {
+      activeCondo: null
+    };
   }
 };
 </script>

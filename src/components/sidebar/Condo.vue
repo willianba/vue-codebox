@@ -2,7 +2,16 @@
   <div>
     <table>
       <tr>
-        <a :class="backgroundColor" @click="sendToCondoList">
+        <a
+          :class="[
+            backgroundColor,
+            { 'is-active': activeCondo === condo.name }
+          ]"
+          @click="
+            sendToCondoList();
+            $emit('active-condo', condo.name);
+          "
+        >
           <td>{{ condo.name }}</td>
           <td>{{ condo.score }}</td>
         </a>
@@ -26,6 +35,10 @@ export default {
     condo: {
       type: Object,
       required: true
+    },
+    activeCondo: {
+      type: String,
+      required: false
     }
   }
 };
