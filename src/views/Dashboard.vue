@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/sidebar/Sidebar";
 import PercentageChart from "@/components/charts/PercentageChart";
 import DashboardItem from "@/components/dashboard/DashboardItem";
 import condominiums from "@/condominiums.json";
@@ -63,5 +63,9 @@ export default {
 
 .red-background {
   background-color: rgba(255, 153, 153, 0.26);
+}
+
+.light-blue-background {
+  background-color: rgba(105, 180, 255, 0.45);
 }
 </style>

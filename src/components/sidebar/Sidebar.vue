@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import CondoList from "@/components/condominiums/CondoList";
+import CondoList from "./CondoList";
 import { condosClassificationMixin } from "@/mixins/condosClassificationMixin";
 import { BUTTONS } from "@/constants/buttons";
 
