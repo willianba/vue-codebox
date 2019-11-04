@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-fullheight-with-navbar has-bg-img">
-    <div class="hero-body">
+    <div class="hero-body fade">
       <div class="container">
         <h1 class="title">
           TownSQ - Health check dashboard

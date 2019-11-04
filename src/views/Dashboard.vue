@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="fade">
     <Sidebar
       :condos="condos"
       @send-to-dashboard="bindCondoToDashboard($event)"
     />
     <div class="fixed-sidebar one-pixel-padding-top">
-      <DashboardItem :condo="dashboardCondo" />
+      <DashboardItem :condo="dashboardCondo" class="fade" />
       <PercentageChart :condos="condos" />
     </div>
   </div>
