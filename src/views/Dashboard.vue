@@ -4,7 +4,7 @@
       :condos="condos"
       @send-to-dashboard="bindCondoToDashboard($event)"
     />
-    <div class="fixed-sidebar">
+    <div class="fixed-sidebar one-pixel-padding-top">
       <DashboardItem :condo="dashboardCondo" />
       <PercentageChart :condos="condos" />
     </div>
@@ -47,6 +47,10 @@ export default {
 .fixed-sidebar {
   padding-left: 260px;
   padding-right: 10px;
+}
+
+.one-pixel-padding-top {
+  padding-top: 1px;
 }
 
 .green-background {

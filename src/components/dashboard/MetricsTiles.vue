@@ -1,5 +1,5 @@
 <template>
-  <div class="tile is-ancestor one-pixel-padding-top">
+  <div class="tile is-ancestor">
     <div
       class="tile is-parent is-vertical"
       :key="metric.name"
@@ -26,9 +26,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.one-pixel-padding-top {
-  padding-top: 1px;
-}
-</style>
