@@ -26,7 +26,11 @@
           />
         </div>
       </div>
-      <CondoList :condos="mutableCondos" :search="search" />
+      <CondoList
+        :condos="mutableCondos"
+        :search="search"
+        @condo-to-sidebar="sendToDashboard($event)"
+      />
     </aside>
   </div>
 </template>
@@ -42,6 +46,9 @@ export default {
     CondoList
   },
   methods: {
+    sendToDashboard(condo) {
+      this.$emit("send-to-dashboard", condo);
+    },
     showAll() {
       this.mutableCondos = this.condos;
     },

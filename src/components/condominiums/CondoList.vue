@@ -2,7 +2,7 @@
   <div>
     <div :key="condo.name" v-for="condo in filteredCondos">
       <ul class="menu-list">
-        <Condo :condo="condo" />
+        <Condo :condo="condo" @condo-to-condolist="sendToSidebar($event)" />
       </ul>
     </div>
   </div>
@@ -21,6 +21,11 @@ export default {
       return this.condos.filter(condo => {
         return condo.name.toLowerCase().match(this.search.toLowerCase());
       });
+    }
+  },
+  methods: {
+    sendToSidebar(condo) {
+      this.$emit("condo-to-sidebar", condo);
     }
   },
   props: {

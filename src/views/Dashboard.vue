@@ -1,7 +1,11 @@
 <template>
   <div>
-    <Sidebar :condos="condos" />
+    <Sidebar
+      :condos="condos"
+      @send-to-dashboard="bindCondoToDashboard($event)"
+    />
     <div class="fixed-sidebar">
+      <DashboardItem :condo="dashboardCondo" />
       <PercentageChart :condos="condos" />
     </div>
   </div>
@@ -10,17 +14,25 @@
 <script>
 import Sidebar from "@/components/Sidebar";
 import PercentageChart from "@/components/charts/PercentageChart";
+import DashboardItem from "@/components/dashboard/DashboardItem";
 import condominiums from "@/condominiums.json";
 
 export default {
   name: "Dashboard",
   components: {
     Sidebar,
-    PercentageChart
+    PercentageChart,
+    DashboardItem
+  },
+  methods: {
+    bindCondoToDashboard(condo) {
+      this.dashboardCondo = condo;
+    }
   },
   data() {
     return {
-      condos: condominiums
+      condos: condominiums,
+      dashboardCondo: null
     };
   },
   mounted() {
@@ -31,9 +43,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .fixed-sidebar {
   padding-left: 260px;
   padding-right: 10px;
+}
+
+.green-background {
+  background-color: rgba(170, 255, 153, 0.26);
+}
+
+.yellow-background {
+  background-color: rgba(255, 253, 153, 0.26);
+}
+
+.red-background {
+  background-color: rgba(255, 153, 153, 0.26);
 }
 </style>

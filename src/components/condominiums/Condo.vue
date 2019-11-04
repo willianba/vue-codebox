@@ -2,7 +2,7 @@
   <div>
     <table>
       <tr>
-        <a :class="backgroundColor">
+        <a :class="backgroundColor" @click="sendToCondoList">
           <td>{{ condo.name }}</td>
           <td>{{ condo.score }}</td>
         </a>
@@ -13,18 +13,16 @@
 
 <script>
 import { SCORE } from "@/constants/score";
+import { backgroundColorMixin } from "@/mixins/backgroundColorMixin";
 
 export default {
   name: "Condo",
-  computed: {
-    backgroundColor() {
-      return {
-        "green-background": this.isGood,
-        "yellow-background": this.isAverage,
-        "red-background": this.isBad
-      };
+  methods: {
+    sendToCondoList() {
+      this.$emit("condo-to-condolist", this.condo);
     }
   },
+  mixins: [backgroundColorMixin],
   props: {
     condo: {
       type: Object,
@@ -50,17 +48,5 @@ table {
 
 td {
   width: 100%;
-}
-
-.green-background {
-  background-color: rgba(170, 255, 153, 0.26);
-}
-
-.yellow-background {
-  background-color: rgba(255, 253, 153, 0.26);
-}
-
-.red-background {
-  background-color: rgba(255, 153, 153, 0.26);
 }
 </style>
