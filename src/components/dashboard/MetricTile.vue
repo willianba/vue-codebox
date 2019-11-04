@@ -16,29 +16,29 @@
 
 <script>
 import { SCORE } from "@/constants/score";
-import { backgroundColorMixin } from "@/mixins/backgroundColorMixin";
 
 export default {
   name: "MetricTile",
+  computed: {
+    backgroundColor() {
+      return {
+        "green-background": this.metric.score >= SCORE.GOOD,
+        "yellow-background":
+          this.metric.score >= SCORE.BAD && this.metric.score < SCORE.GOOD,
+        "red-background": this.metric.score < SCORE.BAD
+      };
+    }
+  },
   filters: {
     capitalizeMetric(name) {
       return name.charAt(0).toUpperCase() + name.slice(1);
     }
   },
-  mixins: [backgroundColorMixin],
   props: {
     metric: {
       type: Object,
       required: true
     }
-  },
-  data() {
-    return {
-      isGood: this.metric.score >= SCORE.GOOD,
-      isAverage:
-        this.metric.score >= SCORE.BAD && this.metric.score < SCORE.GOOD,
-      isBad: this.metric.score < SCORE.BAD
-    };
   }
 };
 </script>

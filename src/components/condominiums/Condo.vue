@@ -13,28 +13,29 @@
 
 <script>
 import { SCORE } from "@/constants/score";
-import { backgroundColorMixin } from "@/mixins/backgroundColorMixin";
 
 export default {
   name: "Condo",
+  computed: {
+    backgroundColor() {
+      return {
+        "green-background": this.condo.score >= SCORE.GOOD,
+        "yellow-background":
+          this.condo.score >= SCORE.BAD && this.condo.score < SCORE.GOOD,
+        "red-background": this.condo.score < SCORE.BAD
+      };
+    }
+  },
   methods: {
     sendToCondoList() {
       this.$emit("condo-to-condolist", this.condo);
     }
   },
-  mixins: [backgroundColorMixin],
   props: {
     condo: {
       type: Object,
       required: true
     }
-  },
-  data() {
-    return {
-      isGood: this.condo.score >= SCORE.GOOD,
-      isAverage: this.condo.score >= SCORE.BAD && this.condo.score < SCORE.GOOD,
-      isBad: this.condo.score < SCORE.BAD
-    };
   }
 };
 </script>
