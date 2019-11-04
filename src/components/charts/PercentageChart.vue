@@ -1,14 +1,10 @@
 <template>
   <div class="tile is-ancestor is-3">
-    <div class="tile is-vertical">
-      <div class="tile">
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-light-blue box">
-            <h4 class="title is-4">Condominiums percentage</h4>
-            <canvas :id="chartId"></canvas>
-          </article>
-        </div>
-      </div>
+    <div class="tile is-parent">
+      <article class="tile is-child light-blue-background box">
+        <h4 class="title is-4">Condominiums percentage</h4>
+        <canvas :id="chartId"></canvas>
+      </article>
     </div>
   </div>
 </template>
@@ -55,9 +51,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.is-light-blue {
-  background-color: rgba(105, 180, 255, 0.45);
-}
-</style>
