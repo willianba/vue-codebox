@@ -6,7 +6,7 @@
           <h1 class="title">
             Welcome to TownSQ - Health check dashboard
           </h1>
-          <div v-if="!$auth.isAuthenticated && !$auth.loading">
+          <div v-if="!$auth.isAuthenticated">
             <h2 class="subtitle">
               Please login to access the dashboard.
             </h2>
